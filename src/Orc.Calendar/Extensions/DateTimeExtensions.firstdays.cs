@@ -74,7 +74,7 @@
                     }
                 }
 
-                if (deltaInOtherMonth > 4)
+                if (deltaInOtherMonth > 3)
                 {
                     // Skip forward instead, we can't fit the 4 days in a week
                     delta = 1;

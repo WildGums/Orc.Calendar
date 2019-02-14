@@ -11,7 +11,7 @@
             var weekOfYear = dt.GetWeekOfYear(calendarWeekRule, firstDayOfWeek);
 
             if ((weekOfYear < 6) &&
-                (firstMondayOfMonth.Month == 1 || firstMondayOfMonth.Month == 12))
+                (firstMondayOfMonth.Month == 1 || firstMondayOfMonth.Month == 2 || firstMondayOfMonth.Month == 12))
             {
                 //week of year == week of month in January
                 //this also fixes the overflowing last December week
