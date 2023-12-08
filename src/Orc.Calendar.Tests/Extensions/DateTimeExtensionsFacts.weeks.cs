@@ -7,7 +7,7 @@
 
     public partial class DateTimeExtensionsFacts
     {
-        [Test, TestCaseSource(typeof(DateTimeExtensionsFacts), "GetWeekOfYearCases")]
+        [Test, TestCaseSource(typeof(DateTimeExtensionsFacts), nameof(GetWeekOfYearCases))]
         public int GetWeekOfYear(DateTime date, CalendarWeekRule calendarWeekRule, DayOfWeek firstDayOfWeek)
         {
             var actual = date.GetWeekOfYear(calendarWeekRule, firstDayOfWeek);
@@ -27,7 +27,7 @@
             }
         }
 
-        [Test, TestCaseSource(typeof(DateTimeExtensionsFacts), "GetWeekOfMonthCases")]
+        [Test, TestCaseSource(typeof(DateTimeExtensionsFacts), nameof(GetWeekOfMonthCases))]
         public int GetWeekOfMonth(DateTime date, CalendarWeekRule calendarWeekRule, DayOfWeek firstDayOfWeek)
         {
             var actual = date.GetWeekOfMonth(calendarWeekRule, firstDayOfWeek);
