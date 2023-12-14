@@ -7,7 +7,7 @@
 
     public partial class DateTimeExtensionsFacts
     {
-        [Test, TestCaseSource(typeof(DateTimeExtensionsFacts), "GetFirstDayOfMonthCases")]
+        [Test, TestCaseSource(typeof(DateTimeExtensionsFacts), nameof(GetFirstDayOfMonthCases))]
         public DateTime GetFirstDayOfMonth(DateTime date, CalendarWeekRule calendarWeekRule, DayOfWeek firstDayOfWeek)
         {
             var actual = date.GetFirstDayOfMonth(calendarWeekRule, firstDayOfWeek);
@@ -30,7 +30,7 @@
             }
         }
 
-        [Test, TestCaseSource(typeof(DateTimeExtensionsFacts), "GetFirstDayOfNextMonthCases")]
+        [Test, TestCaseSource(typeof(DateTimeExtensionsFacts), nameof(GetFirstDayOfNextMonthCases))]
         public DateTime GetFirstMondayNextOfMonth(DateTime date, CalendarWeekRule calendarWeekRule, DayOfWeek firstDayOfWeek)
         {
             var actual = date.GetFirstDayOfNextMonth(calendarWeekRule, firstDayOfWeek);
