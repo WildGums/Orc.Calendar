@@ -1,0 +1,20 @@
+<Solution>
+  <Folder Name="/misc/">
+    <File Path="Directory.build.project.props" />
+    <File Path="Directory.build.props" />
+    <File Path="Directory.build.shared.explicit.props" />
+    <File Path="Directory.build.shared.implicit.props" />
+    <File Path="Directory.build.shared.mat.props" />
+    <File Path="Directory.build.targets" />
+    <File Path="GlobalSuppressions.cs" />
+    <File Path="nuget.config" />
+    <File Path="SolutionAssemblyInfo.cs" />
+  </Folder>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Core/">
+    <Project Path="Orc.Calendar/Orc.Calendar.csproj" />
+  </Folder>
+  <Folder Name="/src/Tests/">
+    <Project Path="Orc.Calendar.Tests/Orc.Calendar.Tests.csproj" />
+  </Folder>
+</Solution>
