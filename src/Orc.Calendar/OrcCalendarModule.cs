@@ -1,0 +1,21 @@
+﻿namespace Orc.Calendar
+{
+    using Catel.Services;
+    using Catel.ThirdPartyNotices;
+    using Microsoft.Extensions.DependencyInjection;
+
+    /// <summary>
+    /// Core module which allows the registration of default services in the service collection.
+    /// </summary>
+    public static class OrcCalendarModule
+    {
+        public static IServiceCollection AddOrcCalendar(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddSingleton<ILanguageSource>(new LanguageResourceSource("Orc.Calendar", "Orc.Calendar.Properties", "Resources"));
+
+            serviceCollection.AddSingleton<IThirdPartyNotice>((x) => new LibraryThirdPartyNotice("Orc.Calendar", "https://github.com/wildgums/orc.calendar"));
+
+            return serviceCollection;
+        }
+    }
+}

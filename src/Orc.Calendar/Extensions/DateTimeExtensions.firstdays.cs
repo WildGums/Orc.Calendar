@@ -3,10 +3,11 @@
     using System;
     using System.Globalization;
     using Catel.Logging;
+    using Microsoft.Extensions.Logging;
 
     public static partial class DateTimeExtensions
     {
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        private static readonly ILogger Logger = LogManager.GetLogger(typeof(DateTimeExtensions));
 
         public static DateTime GetFirstMondayOfMonth(this DateTime time, CalendarWeekRule calendarWeekRule)
         {
@@ -45,7 +46,7 @@
         {
             if (calendarWeekRule != CalendarWeekRule.FirstFourDayWeek)
             {
-                throw Log.ErrorAndCreateException<NotSupportedException>($"Calendar week rule '{calendarWeekRule}' is not yet supported");
+                throw Logger.LogErrorAndCreateException<NotSupportedException>($"Calendar week rule '{calendarWeekRule}' is not yet supported");
             }
 
             // Note that we calculated using FirstFourDayWeek and start day of monday,
