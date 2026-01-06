@@ -1,4 +1,4 @@
-﻿namespace Orc.Calendar
+﻿namespace Orc
 {
     using Catel.Services;
     using Catel.ThirdPartyNotices;
