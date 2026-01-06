@@ -23,6 +23,9 @@ namespace Orc.Calendar
         public static int GetWeekOfMonth(this System.DateTime dt, System.Globalization.CalendarWeekRule calendarWeekRule, System.DayOfWeek firstDayOfWeek) { }
         public static int GetWeekOfYear(this System.DateTime dt, System.Globalization.CalendarWeekRule calendarWeekRule, System.DayOfWeek firstDayOfWeek) { }
     }
+}
+namespace Orc
+{
     public static class OrcCalendarModule
     {
         public static Microsoft.Extensions.DependencyInjection.IServiceCollection AddOrcCalendar(this Microsoft.Extensions.DependencyInjection.IServiceCollection serviceCollection) { }
