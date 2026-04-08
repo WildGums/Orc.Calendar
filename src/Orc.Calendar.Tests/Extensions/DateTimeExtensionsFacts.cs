@@ -1,9 +1,8 @@
-﻿namespace Orc.Calendar.Tests
-{
-    using NUnit.Framework;
+﻿namespace Orc.Calendar.Tests;
 
-    [TestFixture]
-    public partial class DateTimeExtensionsFacts
-    {
-    }
+using NUnit.Framework;
+
+[TestFixture]
+public partial class DateTimeExtensionsFacts
+{
 }
