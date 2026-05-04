@@ -46,7 +46,7 @@ public static partial class DateTimeExtensions
     {
         if (calendarWeekRule != CalendarWeekRule.FirstFourDayWeek)
         {
-            throw Logger.LogErrorAndCreateException<NotSupportedException>($"Calendar week rule '{calendarWeekRule}' is not yet supported");
+            throw Logger.LogErrorAndCreateException<NotSupportedException>("Calendar week rule '{CalendarWeekRule}' is not yet supported", calendarWeekRule);
         }
 
         // Note that we calculated using FirstFourDayWeek and start day of monday,
