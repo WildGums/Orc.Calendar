@@ -195,9 +195,22 @@ jobs:
         uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841 # v1.2.0
         with:
           user: ${{ env.NuGetUser }}
+
+      - name: Determine version
+        id: gitversion
+        shell: pwsh
+        run: |
+          dotnet tool restore
+
+          $gitVersion = dotnet tool run dotnet-gitversion /output json | ConvertFrom-Json
+
+          Add-Content -Path $env:GITHUB_OUTPUT -Value "fullSemVer=$($gitVersion.FullSemVer)"
+          Add-Content -Path $env:GITHUB_OUTPUT -Value "majorMinorPatch=$($gitVersion.MajorMinorPatch)"
+          Add-Content -Path $env:GITHUB_OUTPUT -Value "nuGetVersion=$($gitVersion.NuGetVersionV2)"
+          Add-Content -Path $env:GITHUB_OUTPUT -Value "commitsSinceVersionSource=$($gitVersion.CommitsSinceVersionSource)"
     
       # Build, test & deploy
-      - name: ${{ github.event_name == 'workflow_dispatch' && inputs.Deploy && 'Build and deploy via Cake' || 'Build and test via Cake' }}
+      - name: ${{ github.event_name == 'workflow_dispatch' && inputs.Deploy && format('Build and deploy {0} via Cake', steps.gitversion.outputs.fullSemVer) || format('Build and test {0} via Cake', steps.gitversion.outputs.fullSemVer) }}
         id: cake-build
         if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
         shell: pwsh
